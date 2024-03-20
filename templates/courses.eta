@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Courses</title>
+  </head>
+  <body>
+    <%~ include("/partials/validation-errors.eta", {field: "Course name", errors: it?.errors?.course?._errors }) %>
+    <p>Add a course:</p>
+    <form method="POST" action="/courses">
+      <label for="course">Course name:</label>
+      <input type="text" id="course" name="course" value="<%= it?.course ?? '' %>"/><br/>
+      <input type="submit" value="Add" />
+    </form>
+    <p>Existing courses:</p>
+    <ul>
+    <% it.courses.forEach((course) => { %>
+      <li>
+        <a href="/courses/<%= course.id %>"><%= course.course %></a>
+        <form method="POST" action="/courses/<%= course.id %>/delete">
+          <input type="submit" value="Delete" />
+        </form>
+      </li>
+    <% }); %>
+    </ul>
+  </body>
+</html>

@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Feedback Results</title>
+    </head>
+    <body>
+        <h1>Feedback <%= it.feedbackId %>: <%= it.visits %></h1>
+    </body>
+</html>
